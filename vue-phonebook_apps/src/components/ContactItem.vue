@@ -44,12 +44,12 @@ export default {
         </td>
         <td v-else>{{ contact.phone }}</td>
         <td v-if="isEdit">
-            <button class="btn btn-primary" type="button" @click="update(contact.id)">save</button>
-            <button class="btn btn-warning" type="button" @click="isEdit = false">cancel</button>
+            <button class="btn btn-success mx-1" type="button" @click="update(contact.id)"><font-awesome-icon icon="fa-regular fa-circle-check" /> Save</button>
+            <button class="btn btn-warning text-white" type="button" @click="isEdit = false"><font-awesome-icon icon="fa-solid fa-ban" /> Cancel</button>
         </td>
         <td v-else>
-            <button class="btn btn-success" type="button" @click="isEdit = true">edit</button>
-            <button class="btn btn-danger" type="button" @click="Contact.removeItem(contact.id)">delete </button>
+            <button class="btn btn-primary mx-1" type="button" @click="isEdit = true"><font-awesome-icon icon="fa-solid fa-pencil" /> Edit</button>
+            <button class="btn btn-danger" type="button" @click="Contact.removeItem(contact.id)"><font-awesome-icon icon="fa-solid fa-trash-can" /> Delete </button>
         </td>
     </tr>
 </template>

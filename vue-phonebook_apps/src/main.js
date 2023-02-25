@@ -13,14 +13,13 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons free-solid*/
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
-import { faBan } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faBan, faMagnifyingGlass, faRotateLeft, faPencil, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 
 /* import specific icons free-regular*/
 import { faCircleCheck } from '@fortawesome/free-regular-svg-icons'
 
 /* add icons to the library */
-library.add(faPlus, faCircleCheck, faBan)
+library.add(faPlus, faCircleCheck, faBan, faMagnifyingGlass, faRotateLeft, faPencil, faTrashCan)
 
 const app = createApp(App).component('font-awesome-icon', FontAwesomeIcon);
 

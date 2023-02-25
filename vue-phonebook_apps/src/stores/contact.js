@@ -16,7 +16,7 @@ export const useContactStore = defineStore({
         },
 
         removeItem(id) {
-            this.rawItems = this.rawItems.filter(item => item.id === id)
+            this.rawItems = this.rawItems.filter(item => item.id !== id)
         },
 
         updateItem(contact) {

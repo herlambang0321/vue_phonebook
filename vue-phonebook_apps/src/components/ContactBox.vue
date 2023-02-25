@@ -1,6 +1,7 @@
 <script setup>
 import ContactList from "./ContactList.vue";
 import ContactForm from "./ContactForm.vue";
+import ContactSearch from "./ContactSearch.vue";
 import { useContactStore } from '../stores/contact';
 
 const Contact = useContactStore()
@@ -14,6 +15,9 @@ const Contact = useContactStore()
         </div>
         <div class="card-body">
             <ContactForm @createContact="Contact.addItem"/>
+        </div>
+        <div class="card-body">
+            <ContactSearch @searchContact="Contact.searchItem"/>
         </div>
         <ContactList :contacts="Contact.rawItems" />
     </div>
