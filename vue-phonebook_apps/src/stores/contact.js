@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import { request } from './api'
 
 export const useContactStore = defineStore({
     id: 'contact',
@@ -10,6 +11,19 @@ export const useContactStore = defineStore({
             state.rawItems,
     },
     actions: {
+        loadItem() {
+            request.get('/phonebooks').then((response) => {
+                this.rawItems = response.data.data.rows.map(item => ({
+                    id: item.id,
+                    name: item.name,
+                    phone: item.phone,
+                    sent: true
+                }));
+            }).catch(() => {
+                console.log('Failed to load data');
+            })
+        },
+
         addItem({ name, phone }) {
             this.rawItems.push({ id: Date.now(), name, phone })
             // axios

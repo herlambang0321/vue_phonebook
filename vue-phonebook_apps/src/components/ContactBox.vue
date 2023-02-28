@@ -5,6 +5,12 @@ import ContactSearch from "./ContactSearch.vue";
 import { useContactStore } from '../stores/contact';
 
 const Contact = useContactStore()
+
+const vLoadContact = {
+    beforeMount: (el) => {
+        Contact.loadItem()
+    }
+}
 </script>
 
 <template>
@@ -19,7 +25,7 @@ const Contact = useContactStore()
         <div class="card-body">
             <ContactSearch @searchContact="Contact.searchItem"/>
         </div>
-        <ContactList :contacts="Contact.rawItems" />
+        <ContactList v-load-contact :contacts="Contact.rawItems" />
     </div>
   </div>
 </template>
