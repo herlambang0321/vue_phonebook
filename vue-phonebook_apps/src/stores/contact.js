@@ -19,18 +19,48 @@ export const useContactStore = defineStore({
                     phone: item.phone,
                     sent: true
                 }));
-            }).catch(() => {
-                console.log('Failed to load data');
+            }).catch((err) => {
+                console.log('Failed to load data', err);
             })
         },
 
         addItem({ name, phone }) {
-            this.rawItems.push({ id: Date.now(), name, phone })
-            // axios
+            const id = Date.now()
+            this.rawItems.push({ id, name, phone })
+            request.post('/phonebooks', { name, phone }).then((response) => {
+                this.rawItems = this.rawItems.map(item => {
+                    if (item.id === id) {
+                        return {
+                            id: response.data.data.id,
+                            name: response.data.data.name,
+                            phone: response.data.data.phone,
+                            sent: true
+                        }
+                    }
+                    return item
+                })
+            }).catch((err) => {
+                console.log('Failed to add data', err);
+                this.rawItems = this.rawItems.map(item => {
+                    if (item.id === id) {
+                        return {
+                            id: item.id,
+                            name: item.name,
+                            phone: item.phone,
+                            sent: false
+                        }
+                    }
+                    return item
+                })
+            })
         },
 
         removeItem(id) {
-            this.rawItems = this.rawItems.filter(item => item.id !== id)
+            request.delete(`/phonebooks/${id}`).then(() => {
+                this.rawItems = this.rawItems.filter(item => item.id !== id)
+            }).catch((err) => {
+                console.log('Failed to delete data', err);
+            })
         },
 
         updateItem(contact) {
