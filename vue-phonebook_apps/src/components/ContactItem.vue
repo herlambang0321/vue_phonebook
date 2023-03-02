@@ -48,8 +48,13 @@ export default {
             <button class="btn btn-warning text-white" type="button" @click="isEdit = false"><font-awesome-icon icon="fa-solid fa-ban" /> Cancel</button>
         </td>
         <td v-else>
-            <button class="btn btn-primary mx-1" type="button" @click="isEdit = true"><font-awesome-icon icon="fa-solid fa-pencil" /> Edit</button>
-            <button class="btn btn-danger" type="button" @click="Contact.removeItem(contact.id)"><font-awesome-icon icon="fa-solid fa-trash-can" /> Delete </button>
+            <div v-if="contact.sent">
+                <button class="btn btn-primary mx-1" type="button" @click="isEdit = true"><font-awesome-icon icon="fa-solid fa-pencil" /> Edit</button>
+                <button class="btn btn-danger" type="button" @click="Contact.removeItem(contact.id)"><font-awesome-icon icon="fa-solid fa-trash-can" /> Delete</button>
+            </div>
+            <div v-else>
+                <button class="btn btn-warning text-white" type="button" @click="Contact.resendItem(contact)"><font-awesome-icon icon="fa-solid fa-repeat" /> Resend</button>
+            </div>
         </td>
     </tr>
 </template>
