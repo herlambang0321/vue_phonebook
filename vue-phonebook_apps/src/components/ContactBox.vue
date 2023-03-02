@@ -20,10 +20,10 @@ const vLoadContact = {
             <h1>Phone Book Apps</h1>
         </div>
         <div class="card-body">
-            <ContactForm @createContact="Contact.addItem"/>
+            <ContactForm @createContact="Contact.addItem" />
         </div>
         <div class="card-body">
-            <ContactSearch @searchContact="Contact.searchItem"/>
+            <ContactSearch @searchContact="Contact.searchItem" />
         </div>
         <ContactList v-load-contact :contacts="Contact.rawItems" />
     </div>

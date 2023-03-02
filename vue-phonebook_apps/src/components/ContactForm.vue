@@ -51,13 +51,13 @@ function addContact(){
                             <label for="name">Name</label>
                         </div>
                         <div class="d-flex col-sm-2">
-                            <input type="text" class="form-control" id="name" v-model="name" placeholder="name"/>
+                            <input type="text" class="form-control" id="name" v-model="name" placeholder="name" />
                         </div>
                         <div class="d-flex align-items-center">
                             <label for="phone">Phone</label>
                         </div>
                         <div class="d-flex col-sm-2">
-                            <input type="text" class="form-control" id="phone" v-model="phone" placeholder="phone"/>
+                            <input type="text" class="form-control" id="phone" v-model="phone" placeholder="phone" />
                         </div>
                             <button type="submit" class="btn btn-success"><font-awesome-icon icon="fa-regular fa-circle-check" /> Save</button>
                             <button type="submit" class="btn btn-warning text-white"><font-awesome-icon icon="fa-solid fa-ban" /> Cancel</button>
