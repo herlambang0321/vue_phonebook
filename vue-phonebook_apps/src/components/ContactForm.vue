@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 
-const emit = defineEmits(['createContact'])
+const emit = defineEmits(['createContact', 'cancel'])
 
 const name = ref('')
 const phone = ref('')
@@ -10,6 +10,10 @@ function addContact(){
     emit('createContact', { name: name.value, phone: phone.value })
     name.value = ''
     phone.value = ''
+}
+
+function handleCancel(){
+    emit('cancel')
 }
 </script>
 
@@ -40,7 +44,6 @@ function addContact(){
         </div> -->
 
         <div>
-            <!-- <button type="submit" class="btn btn-primary mb-3"><font-awesome-icon icon="fa-solid fa-plus" /> Add</button> -->
             <div class="card">
                 <div class="card-header">
                     <h6>Adding Form</h6>
@@ -60,7 +63,7 @@ function addContact(){
                             <input type="text" class="form-control" id="phone" v-model="phone" placeholder="phone" />
                         </div>
                             <button type="submit" class="btn btn-success"><font-awesome-icon icon="fa-regular fa-circle-check" /> Save</button>
-                            <button type="submit" class="btn btn-warning text-white"><font-awesome-icon icon="fa-solid fa-ban" /> Cancel</button>
+                            <button type="submit" class="btn btn-warning text-white" @click="handleCancel"><font-awesome-icon icon="fa-solid fa-ban" /> Cancel</button>
                     </div>
                 </form>
             </div>

@@ -8,6 +8,26 @@
   font-weight: normal;
 }
 
+.btn-warning{
+  background-color: #f59e0b;
+}
+
+.btn-success:hover{
+  background-color: #22c55e;
+}
+
+.btn-danger:hover{
+  background-color: #f87171;
+}
+
+.btn-primary:hover{
+  background-color: #60a5fa;
+}
+
+.btn-info:hover{
+  background-color: #1DDDF2;
+}
+
 a,
 .green {
   text-decoration: none;
