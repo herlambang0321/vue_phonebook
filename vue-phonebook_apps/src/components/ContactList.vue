@@ -10,7 +10,7 @@ defineProps({
 </script>
 
 <template>
-    <table class="table table-striped">
+    <table class="table table-striped mt-3">
         <thead>
             <tr>
                 <th>#</th>
