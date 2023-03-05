@@ -8,23 +8,23 @@
   font-weight: normal;
 }
 
-.btn-warning{
+.btn-warning {
   background-color: #f59e0b;
 }
 
-.btn-success:hover{
+.btn-success:hover {
   background-color: #22c55e;
 }
 
-.btn-danger:hover{
+.btn-danger:hover {
   background-color: #f87171;
 }
 
-.btn-primary:hover{
+.btn-primary:hover {
   background-color: #60a5fa;
 }
 
-.btn-info:hover{
+.btn-info:hover {
   background-color: #1DDDF2;
 }
 

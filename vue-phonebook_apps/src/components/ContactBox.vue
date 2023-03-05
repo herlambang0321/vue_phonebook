@@ -25,27 +25,28 @@ const hiddenAddContact = () => {
 </script>
 
 <template>
-  <div class="container-contact">
-    <div class="card">
-        <div class="card-header text-center">
-            <h1>Phone Book Apps</h1>
-        </div>
-        <div v-if="showAdd">
-            <div class="card-body">
-                <ContactForm @cancel="hiddenAddContact" @createContact="Contact.addItem" />
+    <div class="container-contact">
+        <div class="card">
+            <div class="card-header text-center">
+                <h1>Phone Book Apps</h1>
             </div>
-        </div>
-        <div v-else>
-            <div class="card-body md-2">
-                <button type="submit" class="btn btn-primary" @click="showAddContact"><font-awesome-icon icon="fa-solid fa-plus" /> Add</button>
+            <div v-if="showAdd">
+                <div class="card-body">
+                    <ContactForm @cancel="hiddenAddContact" @createContact="Contact.addItem" />
+                </div>
             </div>
+            <div v-else>
+                <div class="card-body md-2">
+                    <button type="submit" class="btn btn-primary" @click="showAddContact"><font-awesome-icon
+                            icon="fa-solid fa-plus" /> Add</button>
+                </div>
+            </div>
+            <div class="card-body py-2">
+                <ContactSearch @searchContact="Contact.searchItem" />
+            </div>
+            <ContactList v-load-contact :contacts="Contact.rawItems" />
         </div>
-        <div class="card-body py-2">
-            <ContactSearch @searchContact="Contact.searchItem" />
-        </div>
-        <ContactList v-load-contact :contacts="Contact.rawItems" />
     </div>
-  </div>
 </template>
 
 <style scoped>

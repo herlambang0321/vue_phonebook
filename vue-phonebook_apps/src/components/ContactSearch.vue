@@ -6,13 +6,13 @@ const emit = defineEmits(['searchContact'])
 const name = ref('')
 const phone = ref('')
 
-function searchContact(){
+function searchContact() {
     emit('searchContact', { name: name.value, phone: phone.value })
     name.value = ''
     phone.value = ''
 }
 
-function resetContact(){
+function resetContact() {
     emit('searchContact', { name: name.value, phone: phone.value })
     name.value = ''
     phone.value = ''
@@ -39,8 +39,10 @@ function resetContact(){
                     <div class="d-flex col-sm-2">
                         <input type="text" class="form-control" id="phone" v-model="phone" placeholder="phone" />
                     </div>
-                        <button type="submit" class="btn btn-info text-white"><font-awesome-icon icon="fa-solid fa-magnifying-glass" /> Search</button>
-                        <button type="submit" class="btn btn-warning text-white"><font-awesome-icon icon="fa-solid fa-rotate-left" /> Reset</button>
+                    <button type="submit" class="btn btn-info text-white"><font-awesome-icon
+                            icon="fa-solid fa-magnifying-glass" /> Search</button>
+                    <button type="submit" class="btn btn-warning text-white"><font-awesome-icon
+                            icon="fa-solid fa-rotate-left" /> Reset</button>
                 </div>
             </form>
         </div>
