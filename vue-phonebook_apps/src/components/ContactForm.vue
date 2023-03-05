@@ -23,25 +23,25 @@ function handleCancel() {
             <div class="card-header">
                 <h6>Adding Form</h6>
                 <form @submit.prevent="addContact">
-                        <div class="row mb-3">
-                            <label for="name" class="col-sm-2 col-form-label">Name</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="name" v-model="name" />
+                            <div class="row mb-3">
+                                <label for="name" class="col-sm-2 col-form-label">Name</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="name" v-model="name" />
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="row mb-3">
-                            <label for="phone" class="col-sm-2 col-form-label">Phone</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="phone" v-model="phone" />
+                            <div class="row mb-3">
+                                <label for="phone" class="col-sm-2 col-form-label">Phone</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="phone" v-model="phone" />
+                                </div>
                             </div>
-                        </div>
 
-                        <button type="submit" class="btn btn-primary">Save</button>
-                        <button type="submit" class="btn btn-warning">Cancel</button>
-                    </form>
-                </div>
-            </div> -->
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="submit" class="btn btn-warning">Cancel</button>
+                        </form>
+                    </div>
+                </div> -->
 
     <!-- <div> -->
     <div class="card">
@@ -69,4 +69,5 @@ function handleCancel() {
             </div>
         </form>
     </div>
-    <!-- </div> --></template>
+    <!-- </div> -->
+</template>
