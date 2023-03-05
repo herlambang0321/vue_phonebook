@@ -41,7 +41,7 @@ const hiddenAddContact = () => {
                             icon="fa-solid fa-plus" /> Add</button>
                 </div>
             </div>
-            <div class="card-body py-2">
+            <div class="card-body py-0">
                 <ContactSearch @searchContact="Contact.searchItem" />
             </div>
             <ContactList v-load-contact :contacts="Contact.rawItems" />
