@@ -64,11 +64,20 @@ export const useContactStore = defineStore({
         },
 
         updateItem(contact) {
-            this.rawItems = this.rawItems.map(item => {
-                if (item.id === contact.id) {
-                    return contact
-                }
-                return item
+            request.put(`/phonebooks/${contact.id}`, { name: contact.name, phone: contact.phone }).then((response) => {
+                this.rawItems = this.rawItems.map(item => {
+                    if (item.id === contact.id) {
+                        return {
+                            id: response.data.data.id,
+                            name: response.data.data.name,
+                            phone: response.data.data.phone,
+                            sent: true
+                        }
+                    }
+                    return item
+                })
+            }).catch((err) => {
+                console.log('Failed to update data', err);
             })
         },
 
