@@ -5,6 +5,7 @@ export const useContactStore = defineStore({
     id: 'contact',
     state: () => ({
         rawItems: [],
+        params: {}
     }),
     getters: {
         items: (state) =>
@@ -21,6 +22,22 @@ export const useContactStore = defineStore({
                 }));
             }).catch((err) => {
                 console.log('Failed to load data', err);
+            })
+        },
+
+        searchItem(query) {
+            let params = {
+                ...query
+            }
+            request.get('/phonebooks', { params }).then((response) => {
+                this.rawItems = response.data.data.rows.map(item => ({
+                    id: item.id,
+                    name: item.name,
+                    phone: item.phone,
+                    sent: true
+                }));
+            }).catch((err) => {
+                console.log('Failed to search data', err);
             })
         },
 
