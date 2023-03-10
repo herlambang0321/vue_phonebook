@@ -23,7 +23,7 @@ function resetContact() {
     <!-- <div> -->
     <div class="card">
         <div class="card-header">
-            <h6>Search Form</h6>
+            <h6 class="cardText">Search Form</h6>
         </div>
         <form class="m-3" @submit.prevent="searchContact">
             <div class="d-flex justify-content me-5">

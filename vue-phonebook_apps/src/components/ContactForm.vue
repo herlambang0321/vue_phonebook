@@ -46,7 +46,7 @@ function handleCancel() {
     <!-- <div> -->
     <div class="card">
         <div class="card-header">
-            <h6>Adding Form</h6>
+            <h6 class="cardText">Adding Form</h6>
         </div>
         <form class="m-3" @submit.prevent="addContact">
             <div class="d-flex justify-content me-5">

@@ -28,7 +28,7 @@ const hiddenAddContact = () => {
     <div class="container-contact">
         <div class="card">
             <div class="card-header cards">
-                <h1>Phone Book Apps</h1>
+                <h1 class="cardsText">Phone Book Apps</h1>
             </div>
             <div v-if="showAdd">
                 <div class="card-body">
@@ -58,5 +58,11 @@ const hiddenAddContact = () => {
     text-align: center;
     font-family: inherit;
     background-color: aquamarine;
+}
+
+.cardsText {
+    margin-bottom: auto;
+    font-style: italic;
+    font-weight: bold;
 }
 </style>

@@ -53,3 +53,10 @@ a,
     padding: 0 2rem;
   }
 }
+
+.cardText{
+  margin-bottom: auto;
+  color: rgb(72, 141, 141);
+  font-style: italic;
+  font-weight: bold;
+}
