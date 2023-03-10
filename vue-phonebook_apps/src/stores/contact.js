@@ -5,7 +5,10 @@ export const useContactStore = defineStore({
     id: 'contact',
     state: () => ({
         rawItems: [],
-        params: {}
+        params: {
+            name: '',
+            phone: ''
+        }
     }),
     getters: {
         items: (state) =>
@@ -25,9 +28,11 @@ export const useContactStore = defineStore({
             })
         },
 
-        searchItem(query) {
+        searchItem({ name, phone }) {
             let params = {
-                ...query
+                ...this.params,
+                name,
+                phone
             }
             request.get('/phonebooks', { params }).then((response) => {
                 this.rawItems = response.data.data.rows.map(item => ({
@@ -36,6 +41,7 @@ export const useContactStore = defineStore({
                     phone: item.phone,
                     sent: true
                 }));
+                this.params = params
             }).catch((err) => {
                 console.log('Failed to search data', err);
             })
@@ -43,19 +49,23 @@ export const useContactStore = defineStore({
 
         addItem({ name, phone }) {
             const id = Date.now()
-            this.rawItems.push({ id, name, phone })
+            if (!this.params.name && !this.params.phone) {
+                this.rawItems.push({ id, name, phone })
+            }
             request.post('/phonebooks', { name, phone }).then((response) => {
-                this.rawItems = this.rawItems.map(item => {
-                    if (item.id === id) {
-                        return {
-                            id: response.data.data.id,
-                            name: response.data.data.name,
-                            phone: response.data.data.phone,
-                            sent: true
+                if (!this.params.name && !this.params.phone) {
+                    this.rawItems = this.rawItems.map(item => {
+                        if (item.id === id) {
+                            return {
+                                id: response.data.data.id,
+                                name: response.data.data.name,
+                                phone: response.data.data.phone,
+                                sent: true
+                            }
                         }
-                    }
-                    return item
-                })
+                        return item
+                    })
+                }
             }).catch((err) => {
                 console.log('Failed to add data', err);
                 this.rawItems = this.rawItems.map(item => {

@@ -13,7 +13,7 @@ function searchContact() {
 }
 
 function resetContact() {
-    // emit('searchContact', { name: name.value, phone: phone.value })
+    emit('searchContact', { name: '', phone: '' })
     name.value = ''
     phone.value = ''
 }
