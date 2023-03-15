@@ -6,6 +6,8 @@ export const useContactStore = defineStore({
     state: () => ({
         rawItems: [],
         params: {
+            page: 1,
+            totalPage: 1,
             name: '',
             phone: ''
         }
@@ -16,23 +18,81 @@ export const useContactStore = defineStore({
     },
     actions: {
         loadItem() {
-            request.get('/phonebooks').then((response) => {
+            request.get('/phonebooks', { params: this.params }).then((response) => {
                 this.rawItems = response.data.data.rows.map(item => ({
                     id: item.id,
                     name: item.name,
                     phone: item.phone,
                     sent: true
                 }));
+                this.params = {
+                    page: response.data.data.page,
+                    totalPage: response.data.data.totalPage
+                }
             }).catch((err) => {
                 console.log('Failed to load data', err);
             })
+        },
+
+        // loadmoreItem() {
+        //     // console.log('ini jalan');
+        //     if (this.$state.params.page < this.$state.params.totalPage) {
+        //         let params = {
+        //             ...this.$state.params,
+        //             page: this.$state.params.page + 1
+        //         }
+        //         request.get('/phonebooks', { params }).then((response) => {
+        //             console.log(params, 'ini params');
+        //             this.$state.params = {
+        //                 ...params,
+        //                 totalPage: response.data.data.totalPage
+        //             }
+        //             this.$state.rawItems = response.data.data.rows.map(item => ({
+        //                 id: item.id,
+        //                 name: item.name,
+        //                 phone: item.phone,
+        //                 sent: true
+        //             }));
+        //             this.$state.params = params
+        //         }).catch((err) => {
+        //             console.log('Failed to scroll data', err);
+        //         })
+        //     }
+        // },
+
+        loadmoreItem() {
+            // console.log('ini loadmore');
+            if (this.params.page < this.params.totalPage) {
+                let params = {
+                    ...this.params,
+                    page: this.params.page + 1
+                }
+                request.get('/phonebooks', { params }).then((response) => {
+                    console.log(params, 'ini params');
+                    this.params = {
+                        ...params,
+                        totalPage: response.data.data.totalPage
+                    }
+                    // this.rawItems = response.data.data.rows.map(item => ({
+                        this.rawItems = [...this.rawItems, ...response.data.data.rows.map(item => ({
+                        id: item.id,
+                        name: item.name,
+                        phone: item.phone,
+                        sent: true
+                    }))];
+                    // this.params = params
+                }).catch((err) => {
+                    console.log('Failed to scroll data', err);
+                })
+            }
         },
 
         searchItem({ name, phone }) {
             let params = {
                 ...this.params,
                 name,
-                phone
+                phone,
+                page: 1
             }
             request.get('/phonebooks', { params }).then((response) => {
                 this.rawItems = response.data.data.rows.map(item => ({
@@ -41,7 +101,11 @@ export const useContactStore = defineStore({
                     phone: item.phone,
                     sent: true
                 }));
-                this.params = params
+                // this.params = params
+                this.params = {
+                    ...params,
+                    totalPage: response.data.data.totalPage
+                }
             }).catch((err) => {
                 console.log('Failed to search data', err);
             })
