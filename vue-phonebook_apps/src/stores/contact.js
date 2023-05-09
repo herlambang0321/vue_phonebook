@@ -41,7 +41,6 @@ export const useContactStore = defineStore({
                     page: this.params.page + 1
                 }
                 request.get('/phonebooks', { params }).then((response) => {
-                    console.log(params, 'ini params');
                     this.params = {
                         ...params,
                         totalPage: response.data.data.totalPage
