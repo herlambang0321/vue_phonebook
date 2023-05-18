@@ -1,5 +1,5 @@
 <script setup>
-import ContactBox from "@/components/ContactBox.vue";
+import ContactBox from "../components/ContactBox.vue";
 </script>
 
 <template>
