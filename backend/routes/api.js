@@ -4,7 +4,6 @@ var models = require('../models');
 var { Response } = require('../helpers/util')
 const { Op } = require('sequelize')
 
-
 router.get('/phonebooks', async function (req, res, next) {
     try {
         const { name, phone } = req.query
@@ -29,9 +28,6 @@ router.get('/phonebooks', async function (req, res, next) {
                         }
                     ]
                 },
-                order: [
-                    ['id', 'ASC']
-                ],
                 limit: limit,
                 offset: offset
             })
@@ -54,9 +50,6 @@ router.get('/phonebooks', async function (req, res, next) {
                         }
                     ]
                 },
-                order: [
-                    ['id', 'ASC']
-                ],
                 limit: limit,
                 offset: offset
             })
@@ -78,9 +71,6 @@ router.get('/phonebooks', async function (req, res, next) {
                         }
                     ]
                 },
-                order: [
-                    ['id', 'ASC']
-                ],
                 limit: limit,
                 offset: offset
             })

@@ -8,8 +8,6 @@ const phone = ref('')
 
 function searchContact() {
     emit('searchContact', { name: name.value, phone: phone.value })
-    // name.value = ''
-    // phone.value = ''
 }
 
 function resetContact() {
@@ -20,31 +18,31 @@ function resetContact() {
 </script>
 
 <template>
-    <!-- <div> -->
     <div class="card">
         <div class="card-header">
             <h6 class="cardText">Search Form</h6>
         </div>
         <form class="m-3" @submit.prevent="searchContact">
-            <div class="d-flex justify-content me-5">
-                <div class="d-flex align-items-center">
+            <div class="row g-0 align-items-center">
+                <div class="col-auto">
                     <label for="name">Name</label>
                 </div>
-                <div class="d-flex col-sm-2">
-                    <input type="text" class="form-control" id="name" v-model="name" placeholder="name" />
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" id="name" v-model="name" placeholder="name..." />
                 </div>
-                <div class="d-flex align-items-center">
+                <div class="col-auto">
                     <label for="phone">Phone</label>
                 </div>
-                <div class="d-flex col-sm-2">
-                    <input type="text" class="form-control" id="phone" v-model="phone" placeholder="phone" />
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" id="phone" v-model="phone" placeholder="phone..." />
                 </div>
-                <button type="submit" class="btn btn-info text-white"><font-awesome-icon
-                        icon="fa-solid fa-magnifying-glass" /> Search</button>
-                <button type="submit" class="btn btn-warning text-white" @click="resetContact"><font-awesome-icon
-                        icon="fa-solid fa-rotate-left" /> Reset</button>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-info text-white"><font-awesome-icon
+                            icon="fa-solid fa-magnifying-glass" /> Search</button>
+                    <button type="submit" class="btn btn-warning text-white" @click="resetContact"><font-awesome-icon
+                            icon="fa-solid fa-rotate-left" /> Reset</button>
+                </div>
             </div>
         </form>
     </div>
-    <!-- </div> -->
 </template>

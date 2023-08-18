@@ -58,7 +58,7 @@ export default {
             <button class="btn btn-success mx-1" type="button" @click="update(contact.id)"><font-awesome-icon
                     icon="fa-regular fa-circle-check" /> Save</button>
             <button class="btn btn-warning text-white" type="button" @click="isEdit = false"><font-awesome-icon
-                    icon="fa-solid fa-ban" /> Cancel</button>
+                    icon="fa-solid fa-ban" rotation=90 /> Cancel</button>
         </td>
         <td v-else>
             <div v-if="contact.sent">

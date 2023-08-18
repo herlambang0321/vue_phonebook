@@ -45,7 +45,7 @@ export const useContactStore = defineStore({
                         ...params,
                         totalPage: response.data.data.totalPage
                     }
-                        this.rawItems = [...this.rawItems, ...response.data.data.rows.map(item => ({
+                    this.rawItems = [...this.rawItems, ...response.data.data.rows.map(item => ({
                         id: item.id,
                         name: item.name,
                         phone: item.phone,

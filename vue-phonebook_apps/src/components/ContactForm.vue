@@ -24,23 +24,27 @@ function handleCancel() {
                 <h6 class="cardText">Adding Form</h6>
             </div>
             <form class="m-3" @submit.prevent="addContact">
-                <div class="d-flex justify-content me-5">
-                    <div class="d-flex align-items-center">
+                <div class="row g-0 align-items-center">
+                    <div class="col-auto">
                         <label for="name">Name</label>
                     </div>
-                    <div class="d-flex col-sm-2">
-                        <input type="text" class="form-control" id="name" v-model="name" placeholder="name" required />
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" id="name" v-model="name" placeholder="name..." required />
                     </div>
-                    <div class="d-flex align-items-center">
+                    <div class="col-auto">
                         <label for="phone">Phone</label>
                     </div>
-                    <div class="d-flex col-sm-2">
-                        <input type="text" class="form-control" id="phone" v-model="phone" placeholder="phone" required />
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" id="phone" v-model="phone" placeholder="phone..."
+                            required />
                     </div>
-                    <button type="submit" class="btn btn-success"><font-awesome-icon icon="fa-regular fa-circle-check" />
-                        Save</button>
-                    <button type="submit" class="btn btn-warning text-white" @click="handleCancel"><font-awesome-icon
-                            icon="fa-solid fa-ban" /> Cancel</button>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-success"><font-awesome-icon
+                                icon="fa-regular fa-circle-check" />
+                            Save</button>
+                        <button type="submit" class="btn btn-warning text-white" @click="handleCancel"><font-awesome-icon
+                                icon="fa-solid fa-ban" rotation=90 /> Cancel</button>
+                    </div>
                 </div>
             </form>
         </div>

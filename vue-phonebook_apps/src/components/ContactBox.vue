@@ -38,7 +38,7 @@ const hiddenAddContact = () => {
             <div v-else>
                 <div class="card-body md-2">
                     <button type="submit" class="btn btn-primary" @click="showAddContact"><font-awesome-icon
-                            icon="fa-solid fa-plus" /> Add</button>
+                            icon="fa-solid fa-user-plus" /> Add</button>
                 </div>
             </div>
             <div class="card-body py-0">

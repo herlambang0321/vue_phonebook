@@ -22,19 +22,21 @@ const scrolled = (event) => {
 
 <template>
     <div class="scrolls" @scroll="scrolled">
-        <table class="table table-striped mt-2">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Phone</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <ContactItem v-for="(contact, index) in contacts" :no="index + 1" :contact="contact" />
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="table table-striped mt-2">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ContactItem v-for="(contact, index) in contacts" :no="index + 1" :contact="contact" />
+                </tbody>
+            </table>
+        </div>
     </div>
 </template>
 
